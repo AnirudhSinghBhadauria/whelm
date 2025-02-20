@@ -37,7 +37,6 @@ services:
       - ndsnet
 
   docker-proxy:
-    container_name: whelm-docker-proxy
     image: alpine/socat
     command: "TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock"
     ports:
