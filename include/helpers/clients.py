@@ -1,6 +1,7 @@
 from minio import Minio
 from airflow.hooks.base import BaseHook
-
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 
 def get_minio_client():
     minio = BaseHook.get_connection("crypto-minio")
@@ -14,5 +15,6 @@ def get_minio_client():
     return client
 
 def get_youtube_client(developer_key: str):
-    youtube = build("youtube", "v3", developerKey=DEVELOPER_KEY)
+    youtube = build("youtube", "v3", developerKey=developer_key)
+
     return youtube
