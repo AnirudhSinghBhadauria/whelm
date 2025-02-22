@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 def get_minio_client():
-    minio = BaseHook.get_connection("crypto-minio")
+    minio = BaseHook.get_connection("whelm_minio")
     client = Minio(
         endpoint=minio.extra_dejson['endpoint_url'].split('//')[1],
         access_key=minio.login,
