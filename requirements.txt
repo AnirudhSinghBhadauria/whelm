@@ -2,3 +2,7 @@ apache-airflow-providers-common-compat==1.2.2
 apache-airflow-providers-apache-spark==4.11.3
 google-api-python-client==2.161.0
 minio==7.1.14
+torch==2.6.0
+scipy==1.15.2
+numpy==2.2.3
+pandas==2.2.3

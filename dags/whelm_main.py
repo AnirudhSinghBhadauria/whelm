@@ -8,6 +8,7 @@ from include.callbacks.status import (
     on_dag_failure, on_dag_success
 )
 from include.helpers.core.fetch_comments import comments
+from include.helpers.core.preprocess_comments import process
 
 @dag(
     start_date = datetime(2025, 2, 15),
@@ -24,14 +25,17 @@ def whelm():
         DEVELOPER_KEY = Variable.get(
             "yt_developer_key", deserialize_json=True
         )
-
         youtube = get_youtube_client(DEVELOPER_KEY)
+        processing_response = comments(youtube)
 
-        processed_files = comments(youtube)
+        return processing_response
 
-        print(processed_files)
+    fetch_comments = get_comments()
 
+    @task.pyspark(conn_id="whelm_core")
+    def preprocess_comments(spark: SparkSession, sc:SparkContext):
+        pass
 
-    get_comments()
+    fetch_comments
 
 whelm()
