@@ -1,3 +1,5 @@
+from airflow.models import Variable
+from include.helpers.clients import get_minio_client
 from include.helpers.minio_read_write import (
     read_parquet_minio, write_parquet_minio
 )
