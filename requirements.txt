@@ -7,3 +7,4 @@ scipy==1.15.2
 numpy==2.2.3
 pandas==2.2.3
 emoji==2.14.1
+transformers==4.49.0

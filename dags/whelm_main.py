@@ -1,6 +1,5 @@
 from airflow.decorators import dag, task
 from datetime import datetime, timedelta
-from include.helpers.clients import get_youtube_client
 from airflow.models import Variable
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
@@ -9,12 +8,15 @@ from include.callbacks.status import (
 )
 from include.helpers.core.fetch_comments import comments
 from include.helpers.core.preprocess_comments import process
+from include.helpers.core.analyze_comments import analyze
+from include.helpers.core.dump_comments import berg_store
+from include.helpers.clients import get_youtube_client
 
 @dag(
     start_date = datetime(2025, 2, 15),
     schedule = "0 12 * * *",
     catchup = False,
-    dagrun_timeout = timedelta(minutes = 5),
+    dagrun_timeout = timedelta(minutes = 30),
     on_success_callback = on_dag_success,
     on_failure_callback = on_dag_failure,
     tags = ['whelm: Youtube sentiment pipeline']
@@ -33,6 +35,20 @@ def whelm():
 
         return curated_files
 
-    preprocess_comments(get_comments())
+    @task.pyspark(conn_id="whelm_core")
+    def analyze_comments(preprocessed_files, spark: SparkSession, sc: SparkContext):
+        analyzed_files = analyze(preprocessed_files)
+
+        return analyzed_files
+
+    @task
+    def dump(processed_files):
+        dumped_files = berg_store(processed_files)
+
+        print(
+            f"Following files are analyzed successfully: {dumped_files}"
+        )
+
+    analyze_comments(preprocess_comments(get_comments()))
 
 whelm()

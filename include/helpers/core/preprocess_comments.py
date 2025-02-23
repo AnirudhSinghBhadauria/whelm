@@ -1,28 +1,15 @@
-import re, io, emoji
+import re, emoji
 import pandas as pd
 from airflow.models import Variable
 from include.helpers.clients import get_minio_client
+from include.helpers.minio_read_write import (
+    write_parquet_minio, read_parquet_minio
+)
 
 CLIENT = get_minio_client()
 BUCKET_NAME = Variable.get(
    "minio_bucket", deserialize_json=True
 )
-
-def read_parquet_minio(file_path):
-   data = CLIENT.get_object(BUCKET_NAME, file_path).read()
-   return pd.read_parquet(io.BytesIO(data))
-
-def write_parquet_minio(df, output_path):
-   buffer = io.BytesIO()
-   df.to_parquet(buffer)
-   buffer.seek(0)
-
-   CLIENT.put_object(
-       bucket_name=BUCKET_NAME,
-       object_name=output_path,
-       data=buffer,
-       length=buffer.getbuffer().nbytes
-   )
 
 def preprocess_yt_comments(text):
    if not isinstance(text, str):
@@ -52,12 +39,13 @@ def process(comment_files):
    curated_files = []
 
    for file_path in comment_files:
-       df = read_parquet_minio(file_path)
+       df = read_parquet_minio(CLIENT, BUCKET_NAME, file_path)
        processed_df = clean_comments(df)
 
        curated_path = file_path.replace('stage/', 'curated/')
-       write_parquet_minio(processed_df, curated_path)
+       write_parquet_minio(CLIENT, processed_df, BUCKET_NAME, curated_path)
 
        curated_files.append(curated_path)
+       CLIENT.remove_object(BUCKET_NAME, file_path)
 
    return curated_files
