@@ -22,20 +22,17 @@ from include.helpers.core.preprocess_comments import process
 def whelm():
     @task.pyspark(conn_id = "whelm_core")
     def get_comments(spark: SparkSession, sc: SparkContext):
-        DEVELOPER_KEY = Variable.get(
-            "yt_developer_key", deserialize_json=True
-        )
-        youtube = get_youtube_client(DEVELOPER_KEY)
+        youtube = get_youtube_client()
         processing_response = comments(youtube)
 
         return processing_response
 
-    fetch_comments = get_comments()
-
     @task.pyspark(conn_id="whelm_core")
-    def preprocess_comments(spark: SparkSession, sc:SparkContext):
-        pass
+    def preprocess_comments(comment_files, spark: SparkSession, sc:SparkContext):
+        curated_files = process(comment_files['processed'])
 
-    fetch_comments
+        return curated_files
+
+    preprocess_comments(get_comments())
 
 whelm()
