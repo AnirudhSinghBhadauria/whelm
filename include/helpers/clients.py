@@ -1,5 +1,6 @@
 from minio import Minio
 from airflow.hooks.base import BaseHook
+from airflow.models import Variable
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
@@ -14,7 +15,10 @@ def get_minio_client():
 
     return client
 
-def get_youtube_client(developer_key: str):
-    youtube = build("youtube", "v3", developerKey=developer_key)
+def get_youtube_client():
+    DEVELOPER_KEY = Variable.get(
+        "yt_developer_key", deserialize_json=True
+    )
+    youtube = build("youtube", "v3", developerKey=DEVELOPER_KEY)
 
     return youtube
