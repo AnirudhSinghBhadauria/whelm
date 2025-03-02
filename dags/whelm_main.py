@@ -10,6 +10,7 @@ from include.helpers.core.fetch_comments import comments
 from include.helpers.core.preprocess_comments import process
 from include.helpers.core.analyze_comments import analyze
 from include.helpers.core.dump_comments import berg_store
+from include.helpers.core.generate_transcript import transcript
 from include.helpers.clients import get_youtube_client
 
 @dag(
@@ -41,6 +42,12 @@ def whelm():
 
         return analyzed_files
 
+    @task.pyspark(conn_id="whelm_core")
+    def generate_transcript(analyzed_files, spark: SparkSession, sc: SparkContext):
+        transcripted_files = transcript(analyzed_files)
+
+        return  transcripted_files
+
     @task
     def dump(processed_files):
         dumped_files = berg_store(processed_files)
@@ -49,6 +56,10 @@ def whelm():
             f"Following files are analyzed successfully: {dumped_files}"
         )
 
-    analyze_comments(preprocess_comments(get_comments()))
+    generate_transcript(
+        analyze_comments(
+            preprocess_comments(get_comments())
+        )
+    )
 
 whelm()
