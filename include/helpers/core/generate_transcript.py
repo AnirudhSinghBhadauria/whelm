@@ -3,16 +3,16 @@ from include.helpers.minio_read_write import (
     read_parquet_minio, write_parquet_minio
 )
 from include.helpers.clients import get_minio_client
-from openai import OpenAI
 import pandas as pd
 from io import BytesIO
+from mistralai import Mistral
 
 CLIENT = get_minio_client()
 BUCKET_NAME = Variable.get("minio_bucket", deserialize_json=True)
-OPENAI_KEY = Variable.get("openai_key", deserialize_json=True)
+MISTRAL_KEY = Variable.get("mistral_key", deserialize_json=True)
 
 def transcirpt_path(original_path):
-    transformed_path = original_path.replace("stage", "transcript", 1)
+    transformed_path = original_path.replace("processed", "transcript", 1)
     transformed_path = transformed_path.replace(".parquet", ".txt")
 
     return transformed_path
@@ -29,20 +29,20 @@ def generate_transcirpt(df, file_path):
         entry += "---\n"
         text_content += entry
 
-    openai_client = OpenAI(
-        api_key = OPENAI_KEY
+    mistral_client = Mistral(
+        api_key = MISTRAL_KEY
     )
 
-    completion = openai_client.chat.completions.create(
-        model = "gpt-4o-mini",
+    completion = mistral_client.chat.complete(
+        model = "mistral-large-latest",
         messages=[
             {
              "role": "system",
-             "content": "You are a helpful assistant that analyzes YouTube comments. Your task is to analyze comments from a specific video and provide insights about the video's content, reception, and impact based solely on these comments."
+             "content": "You are a helpful assistant that analyzes YouTube comments. Focus ONLY on analyzing audience reactions and sentiment. Do not speculate about video content beyond what is directly mentioned in comments."
             },
             {
              "role": "user",
-             "content": f"These are YouTube comments from a specific video. Please analyze these comments to provide insights about the video content, audience reception, and any notable themes or patterns. Based only on these comments, what can you tell about the video?\n\n{text_content}"
+             "content": f"These are YouTube comments from a specific video. Please provide ONLY an analysis of audience reception and reactions. Focus on how viewers responded to the video, their sentiment, and any patterns in their feedback. Do NOT analyze the video content itself unless directly relevant to audience reactions.\n\n{text_content}"
             }
         ]
     )
