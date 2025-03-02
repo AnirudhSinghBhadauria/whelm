@@ -9,3 +9,6 @@ pandas==2.2.3
 emoji==2.14.1
 transformers==4.49.0
 mistralai==1.5.0
+psycopg2-binary==2.9.10
+
+astro-run-dag # This package is needed for the astro run command. It will be removed before a deploy

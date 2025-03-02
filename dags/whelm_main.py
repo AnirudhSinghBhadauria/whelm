@@ -3,15 +3,16 @@ from datetime import datetime, timedelta
 from airflow.models import Variable
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
-from include.callbacks.status import (
-    on_dag_failure, on_dag_success
-)
 from include.helpers.core.fetch_comments import comments
 from include.helpers.core.preprocess_comments import process
 from include.helpers.core.analyze_comments import analyze
 from include.helpers.core.dump_comments import berg_store
 from include.helpers.core.generate_transcript import transcript
+from include.helpers.core.cockroachdb_load import cockroachdb
 from include.helpers.clients import get_youtube_client
+from include.callbacks.status import (
+    on_dag_failure, on_dag_success
+)
 
 @dag(
     start_date = datetime(2025, 2, 15),
@@ -48,6 +49,12 @@ def whelm():
 
         return  transcripted_files
 
+    @task.pyspark(conn_id = "whelm_core")
+    def load_cockroachdb(analyzed_files, spark: SparkSession, sc: SparkContext):
+        loaded_files = cockroachdb(spark, analyzed_files)
+
+        return loaded_files
+
     @task
     def dump(processed_files):
         dumped_files = berg_store(processed_files)
@@ -56,9 +63,13 @@ def whelm():
             f"Following files are analyzed successfully: {dumped_files}"
         )
 
-    generate_transcript(
-        analyze_comments(
-            preprocess_comments(get_comments())
+    load_cockroachdb(
+        generate_transcript(
+            analyze_comments(
+                preprocess_comments(
+                    get_comments()
+                )
+            )
         )
     )
 
