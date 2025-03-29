@@ -1,0 +1,59 @@
+[33mcommit c11dac5c984b47b512170a83daca687f0647af6c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Mar 2 23:13:39 2025 +0530
+
+    loading task started
+
+[33mcommit fde8853999529cab9d3580ba8a7d64d016252722[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Mar 2 19:12:01 2025 +0530
+
+    transcript generation tweaked
+
+[33mcommit 25f450e995b1e6c4c696c3b57e5a558c11fdfa50[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Mar 2 18:03:27 2025 +0530
+
+    transcript generation done
+
+[33mcommit bf94d675c5b5ca3aab7aef662a46866c0f73ca13[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Feb 23 20:48:34 2025 +0530
+
+    minor fixes (import errors)
+
+[33mcommit c60687442db7a5675c57fc2e3d63b5e3307bcd2c[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Feb 23 20:43:47 2025 +0530
+
+    analysis function done
+
+[33mcommit aff8cbb56a2930630afdcb12cec1934b98784eac[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Feb 23 18:03:46 2025 +0530
+
+    preprocessing done
+
+[33mcommit b3324da0584c212059b4ae7a08ae520fd3041fb5[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sat Feb 22 21:37:36 2025 +0530
+
+    fetching comments
+
+[33mcommit 8017a7924ff9cd8181bd5e418634d39ae76748e2[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Fri Feb 21 00:45:16 2025 +0530
+
+    started extraction
+
+[33mcommit fa8d904e43ce7d3f46e4297d7f411705009ee438[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Thu Feb 20 22:59:43 2025 +0530
+
+    youtube client created
+
+[33mcommit 7b052cc32207a21fcab70939ff40ff479a926bdc[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Anirudh Singh Bhadauria <108342411+AnirudhSinghBhadauria@users.noreply.github.com>
+Date:   Sun Feb 16 20:41:47 2025 +0530
+
+    initial commit
