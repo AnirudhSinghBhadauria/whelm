@@ -32,7 +32,7 @@ def get_create_table_query(df, schema, table_name):
 
     create_table = f"""
        {create_schema}
-       CREATE TABLE IF NOT EXISTS {schema}.{table_name} (
+       CREATE TABLE IF NOT EXISTS {schema}."{table_name}" (
            {', '.join(columns)}
        );
        """
@@ -41,11 +41,13 @@ def get_create_table_query(df, schema, table_name):
 
 def cockroachdb(spark, processed_files):
     loaded_files = []
-    conn = psycopg2.connect(COCKROACHDB_CONNECTION['url'])
+    conn = psycopg2.connect(
+        COCKROACHDB_CONNECTION['url'],
+        sslmode='require'
+    )
     cursor = conn.cursor()
 
     for file_path in processed_files:
-
         schema = file_path.split('/')[-2]
         table_name = file_path.split('/')[-1].split('.')[0]
 
@@ -58,7 +60,7 @@ def cockroachdb(spark, processed_files):
         values = [tuple(row) for row in df.values]
 
         insert_query = f"""
-            INSERT INTO {schema}.{table_name} ({', '.join(columns)})
+            INSERT INTO {schema}."{table_name}" ({', '.join(columns)})
             VALUES %s
             ON CONFLICT DO NOTHING
         """
