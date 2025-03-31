@@ -18,7 +18,7 @@ def berg_store(analyzed_files):
         dump_path = file_path.replace('processed/', 'dump/')
         write_parquet_minio(CLIENT, df, BUCKET_NAME, dump_path)
 
-        dumped_files.append(dumped_path)
+        dumped_files.append(file_path)
         CLIENT.remove_object(BUCKET_NAME, file_path)
 
     return dumped_files

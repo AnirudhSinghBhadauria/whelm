@@ -4,7 +4,6 @@ from include.helpers.minio_read_write import (
 )
 from include.helpers.clients import get_minio_client
 import pandas as pd
-from airflow.models import Variable
 import psycopg2
 from psycopg2.extras import execute_values
 
