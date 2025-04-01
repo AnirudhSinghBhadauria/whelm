@@ -69,7 +69,7 @@ def whelm():
         return loaded_files
 
     @task
-    def dump(processed_files):
+    def dump_files(processed_files):
         from include.helpers.core.dump_comments import berg_store
 
         dumped_files = berg_store(processed_files)
@@ -84,14 +84,15 @@ def whelm():
     transcript_task = generate_transcript(analyze_task)
     postgres_task = load_postgres(transcript_task)
     cockroach_task = load_cockroachdb(transcript_task)
-    dump_task = dump(cockroach_task)
+    dump_task = dump_files(cockroach_task)
 
     chain(
         comments_task,
         preprocess_task,
         analyze_task,
         transcript_task,
-        [postgres_task, cockroach_task]
+        [postgres_task, cockroach_task],
+        dump_task
     )
 
 whelm()

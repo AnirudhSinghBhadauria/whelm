@@ -49,6 +49,6 @@ def postgres(spark, analyzed_files):
                 )
                 conn.commit()
 
-        loaded_files.append(file_path)  # Fixed from loaded_files.appned(file_path)
+        loaded_files.append(file_path)
 
     return loaded_files
