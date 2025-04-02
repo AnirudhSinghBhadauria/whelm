@@ -1,6 +1,6 @@
 # Why Whelm?
 
-<div style="font-size: 0.95em;"> <p>
+<div style="font-size: 0.9em;"> <p>
 Just for a second assume you're a content creator on YouTube (I know most of you are). Don't you just think, there should be a tool which should give me each and every detail about my new videos like how audience perceived it, what they want, feedbacks from them, the overall sentiment in audience so that I can better my content?</p>
 
 Imagine uploading a video that you spent days creating - scripting, filming, editing - only to face the daunting task of manually sifting through hundreds or thousands of comments to understand what worked and what didn't. You're left wondering: Did my audience actually like this content? What specific aspects resonated with them? What should I change for my next video?
