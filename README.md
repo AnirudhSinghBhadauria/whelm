@@ -10,11 +10,11 @@ Imagine uploading a video that you spent days creating - scripting, filming, edi
 **That's exactly what Whelm does!** ***Whelm*** is an intelligent analytics system designed to help content creators understand audience perception and improve their content strategy. By automating the collection and analysis of YouTube comments. Processing comments from videos published within the last week to offer timely feedback.
 </div>
 
-### How Whelm Works
+### How Whelm Works?
 Whelm works like your dedicated research team, constantly monitoring your YouTube presence. Every day, it collects fresh comments from your recently published videos. These comments pass through intelligent processing that understands language nuances beyond simple keywords.
 
 <div  align="left">
-  <img src="https://ik.imagekit.io/fcaqoy5tdf/workflow.jpg?updatedAt=1743621265395" alt="Placeholder Image" width="98%" style="border-radius: 10px;">
+  <img src="https://ik.imagekit.io/fcaqoy5tdf/workflow.jpg?updatedAt=1743622019107" alt="Placeholder Image" width="98%" style="border-radius: 10px;">
 </div>
 
 Whelm reads between the lines to identify sentiment, extracting how viewers truly feel about your content. The system then transforms this raw feedback into clear insights and actionable recommendations. All this happens automatically in the background while you focus on creating your next masterpiece.
