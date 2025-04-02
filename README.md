@@ -8,4 +8,4 @@ Content creation shouldn't be guesswork. You shouldn't have to rely on basic met
 
 **That's exactly what Whelm does!** Whelm is an intelligent analytics system designed to help content creators understand audience perception and improve their content strategy. By automating the collection and analysis of YouTube comments. Processing comments from videos published within the last week to offer timely feedback.
 
-[Architechture of Whelm on high level!]("https://ik.imagekit.io/fcaqoy5tdf/structure.jpg?updatedAt=1743618202814") 
+[Architechture of Whelm on high level!](https://ik.imagekit.io/fcaqoy5tdf/structure.jpg?updatedAt=1743618202814) 
