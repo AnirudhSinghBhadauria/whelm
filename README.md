@@ -10,7 +10,8 @@ Imagine uploading a video that you spent days creating - scripting, filming, edi
 **That's exactly what Whelm does!** ***Whelm*** is an intelligent analytics system designed to help content creators understand audience perception and improve their content strategy. By automating the collection and analysis of YouTube comments. Processing comments from videos published within the last week to offer timely feedback.
 </div>
 
-### How Whelm Works?
+## How Whelm Works?
+
 Whelm works like your dedicated research team, constantly monitoring your YouTube presence. Every day, it collects fresh comments from your recently published videos. These comments pass through intelligent processing that understands language nuances beyond simple keywords.
 
 <div  align="left">
@@ -19,7 +20,7 @@ Whelm works like your dedicated research team, constantly monitoring your YouTub
 
 Whelm reads between the lines to identify sentiment, extracting how viewers truly feel about your content. The system then transforms this raw feedback into clear insights and actionable recommendations. All this happens automatically in the background while you focus on creating your next masterpiece.
 
-### Behind the Scenes
+## Behind the Scenes
 
 Whelm operates through a sophisticated six-stage pipeline that turns viewer comments into creator gold. 
 
@@ -32,3 +33,11 @@ Whelm operates through a sophisticated six-stage pipeline that turns viewer comm
 </div>
 
 The system moves your data through a structured path from raw comments to processed insights, ensuring nothing gets lost along the way. Airflow orchestrates this entire workflow while Docker keeps everything running smoothly regardless of your setup.
+
+## Technical Architecture
+
+Our data collection layer connects directly to the YouTube Data API with intelligent polling mechanisms. These connectors respect rate limits while maximizing data throughput to ensure comprehensive comment capture from all your videos without missing engagement.
+
+At the heart of Whelm sits our proprietary NLP core. Unlike general-purpose sentiment tools, our models understand YouTube-specific language patterns, including abbreviated speech, emojis, and platform-specific references that traditional systems miss.
+
+The recommendation engine transforms identified patterns into concrete action steps. Each suggestion comes with confidence scoring based on supporting data volume. Prioritization algorithms ensure you see the most impactful recommendations first.
