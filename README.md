@@ -10,8 +10,8 @@ Imagine uploading a video that you spent days creating - scripting, filming, edi
 **That's exactly what Whelm does!** ***Whelm*** is an intelligent analytics system designed to help content creators understand audience perception and improve their content strategy. By automating the collection and analysis of YouTube comments. Processing comments from videos published within the last week to offer timely feedback.
 </div>
 
-<div align="center">
-  <img src="https://ik.imagekit.io/fcaqoy5tdf/structure.jpg?updatedAt=1743618202814" alt="Placeholder Image" width="95%" style="border-radius: 5px;">
+<div align="left">
+  <img src="https://ik.imagekit.io/fcaqoy5tdf/structure.jpg?updatedAt=1743618202814" alt="Placeholder Image" width="98%" style="border-radius: 15px;">
 </div>
 
 Done 
