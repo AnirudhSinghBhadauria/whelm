@@ -42,4 +42,23 @@ Our data collection layer connects directly to the YouTube Data API with intelli
   <img src="https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2013.49.05_46820c00.jpg?updatedAt=1743841178601" alt="Placeholder Image" width="98%" style="border-radius: 10px;width: 632px;height: 400px;">
 </div>
 
-At the heart of Whelm sits our proprietary NLP core. Unlike general-purpose sentiment tools, our models understand YouTube-specific language patterns, including abbreviated speech, emojis, and platform-specific references that traditional systems miss.
+At the heart of Whelm sits our NLP core. Unlike general-purpose sentiment tools, our model understand YouTube-specific language patterns, including abbreviated speech, emojis, and platform-specific references that traditional systems miss.
+
+### Technology Stack
+- **Orchestration**: Apache Airflow
+- **Storage**: MinIO (S3-compatible object storage)
+- **Databases**: CockroachDB and PostgreSQL
+- **Processing**: PySpark for data transformations
+- **ML Models**: 
+  - RoBERTa for sentiment analysis
+  - Mistral AI for natural language summary generation
+- **Containerization**: Docker
+
+### MinIO Bucket Structure
+```
+├── stage       # Raw data
+├── preprocessed # Cleaned data
+├── curated     # Data with sentiment scores
+├── processed   # Data with summaries
+└── dump        # Archived data
+```
