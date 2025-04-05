@@ -106,7 +106,7 @@ astro dev start
 
 3. **Open Airflow webserver**:
 Go to Admin -> Variables
-- Craete a key called '**channel_ids**' and save all the channel keys you want to process. Vlaue should be in this format only ["channel_id_1", "channel_id_2", ...]
+- Create a key called '**channel_ids**' and save all the channel keys you want to process. Vlaue should be in this format only ["channel_id_1", "channel_id_2", ...]
 - Create a key called '**cockroach_connection**' and the values should look like this
 ```bash
 {
