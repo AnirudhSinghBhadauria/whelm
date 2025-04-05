@@ -38,7 +38,7 @@ The system moves your data through a structured path from raw comments to proces
 
 Our data collection layer connects directly to the YouTube Data API with intelligent polling mechanisms. These connectors respect rate limits while maximizing data throughput to ensure comprehensive comment capture from all your videos without missing engagement.
 
-<div  align="left">
+<div  align="center">
   <img src="https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2013.49.05_46820c00.jpg?updatedAt=1743841178601" alt="Placeholder Image" width="98%" style="border-radius: 10px;width: 632px;height: 400px;">
 </div>
 
