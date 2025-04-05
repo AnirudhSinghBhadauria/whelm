@@ -66,6 +66,8 @@ At the heart of Whelm sits our NLP core. Unlike general-purpose sentiment tools,
 
 ## Installation
 
+Getting started with Whelm takes just a few simple steps. 
+
 ### Prerequisites
 - **Docker and Docker Compose**: Install from [here](https://docs.docker.com/desktop/setup/install/windows-install/)
 - **Install Astro**: Install the Astro CLI from [here](https://www.astronomer.io/docs/astro/cli/install-cli?tab=windows#uninstall-the-cli)
@@ -77,6 +79,11 @@ At the heart of Whelm sits our NLP core. Unlike general-purpose sentiment tools,
 - **Read ```docker-compose.override.yml```**: By this you get to know how everything is setup, how you can access different applications like MinIO, Airflow Server, **change credentials** for them etc.
 - **Folder Stucture**: Please find the folder structure [here](https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2017.22.12_92cfd6bd.jpg?updatedAt=1743853950048).
 - **IDE**: Anything works, VSC, PyCharm etc.
+
+<div  align="center">
+  <img src="https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2018.03.47_2c90bfb6.jpg?updatedAt=1743861112930" alt="Placeholder Image" width="98%" style="border-radius: 10px;">
+</div>
+
 
 ### Applications & Credentials
 
@@ -121,6 +128,29 @@ astro run
 ```
 
 Now you can find all the insights and summary of your video in both the warehouses, in MinIO bucket in the ```/transcript``` folder. Enjoy!
+
+### Simple, Reliable Data Preservation
+
+Whelm takes the long view with your audience insights. We securely store all your valuable comment data and analysis results for as long as you need them, ensuring your historical engagement patterns remain accessible and actionable at any time.
+
+<div align="center" style="display: flex; justify-content: center;">
+  <img src="https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2018.48.13_f47c2167.jpg?updatedAt=1743861087217" alt="Profile Image 1" width="49%" style="border-radius: 10px; margin-right: 1%;">
+  <img src="https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2018.47.20_70a540e0.jpg?updatedAt=1743861070845" alt="Profile Image 2" width="49%" style="border-radius: 10px;">
+</div>
+
+What makes our approach special is our parallel processing architecture. Whelm simultaneously loads information to multiple systems, completely eliminating traditional data bottlenecks when processing large volumes of comments. This means faster analysis, quicker insights, and more responsive performance even at scale.
+
+### What Creators Get?
+
+Creators receive the audience understanding they've always wanted but never had time to develop. You'll discover recurring themes in comments that highlight what resonated most with your audience. The sentiment breakdown shows you exactly how positive or negative the reception was, with specific examples from actual comments.
+
+Beyond simple metrics, you receive strategic recommendations tailored to your content style and audience preferences. All data remains accessible in structured databases, allowing you to track audience sentiment trends over time and across different video styles. This means each new video can be more targeted and effective than the last.
+
+### Notes
+- We have kept DAG timeout at 30 minutes. However, You may need to increase it according to your usage.
+- You can spin both Postgres and CockroachDB locally instead of cloud using the same setup.
+
+With **Whelm**, you'll create content that truly resonates with your viewers. **If Whelm helps your content journey, please ⭐ the repo!** Your stars help more creators discover these insights and contribute to making the tool even better.  Get started today!
 
 ### Find Me Around The Web
 
