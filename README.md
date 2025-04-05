@@ -54,11 +54,77 @@ At the heart of Whelm sits our NLP core. Unlike general-purpose sentiment tools,
   - Mistral AI for natural language summary generation
 - **Containerization**: Docker
 
-### MinIO Bucket Structure
+#### MinIO Bucket Structure
 ```
 ├── stage       # Raw data
 ├── preprocessed # Cleaned data
 ├── curated     # Data with sentiment scores
 ├── processed   # Data with summaries
-└── dump        # Archived data
+├── dump        # Archived data
+└── transcript  # Summarized insights stay here 
 ```
+
+## Installation
+
+### Prerequisites
+- **Docker and Docker Compose**: Install from [here](https://docs.docker.com/desktop/setup/install/windows-install/)
+- **Install Astro**: Install the Astro CLI from [here](https://www.astronomer.io/docs/astro/cli/install-cli?tab=windows#uninstall-the-cli)
+- **YouTube Data API credentials**: Get yours [here](https://developers.google.com/youtube/v3/getting-started)
+- **Mistral AI API key**: Get yours [here](https://console.mistral.ai/)
+- **MinIO instance**: Using the docker over-ride file in the repository.
+- **PostgreSQL instance**: You can spin it locally using the docker-compose or you can get your cloud intance using [Render](https://dashboard.render.com/new/database).
+- **CockroachDB instance**: Again you can spin it locally using the docker-compose or you can get your cloud intance [here](https://www.cockroachlabs.com/).
+- **Read ```docker-compose.override.yml```**: By this you get to know how everything is setup, how you can access different applications like MinIO, Airflow Server, **change credentials** for them etc.
+- **Folder Stucture**: Please find the folder structure [here](https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2017.22.12_92cfd6bd.jpg?updatedAt=1743853950048).
+- **IDE**: Anything works, VSC, PyCharm etc.
+
+### Applications & Credentials
+
+| Name        | URL           | Username & Password  |
+| ------------- |:-------------:| -----:|
+| Airflow Webserver | http://localhost:7081/home | admin & admin |
+| Spark Master | http://localhost:8081/ | - |
+| MinIO | http://localhost:9001/login | minio & minio123 |
+
+1. **Clone the repository**:
+```bash
+git clone git@github.com:AnirudhSinghBhadauria/whelm.git
+cd whelm
+```
+
+2. **Start your Astro Instance**:
+```bash
+astro dev start
+```
+
+3. **Open Airflow webserver**:
+Go to Admin -> Variables
+- Craete a key called '**channel_ids**' and save all the channel keys you want to process. Vlaue should be in this format only ["channel_id_1", "channel_id_2", ...]
+- Create a key called '**cockroach_connection**' and the values should look like this
+```bash
+{
+  "driver": "org.postgresql.Driver",
+  "url": "YOUR_COCKROACHDB_URL",
+  "user": "YOUR_USERNAME",
+  "password": "YOUR_PASSWORD",
+  "ssl": "false"
+}
+```
+- Create a key called '**minio_bucket**' with value "**whelm**".
+- Create a key called '**yt_developer_key**' with your YT developer key.
+- Create a key called '**mistral_key**' with your Mistal key.
+- Create a key called "**postgres_connection**" with your **Render Postgres key** if you are using cloud version using Render.
+  
+4. **Run your DAG**:
+```bash
+astro run
+```
+
+Now you can find all the insights and summary of your video in both the warehouses, in MinIO bucket in the ```/transcript``` folder. Enjoy!
+
+### Find Me Around The Web
+
+- 🌐 Find all my important links here: [Linktree](https://linktr.ee/anirudhsinghbhadauria)
+- 📝 Read my articles: [Hashnode](https://anirudhbhadauria.hashnode.dev)
+- 💼 Linkedin Profile: [LinkedIn](https://www.linkedin.com/in/anirudhsinghbhadauria/)
+- 🐦 I Post on X regularly too: [Twitter/X](https://x.com/LieCheatSteal_)
