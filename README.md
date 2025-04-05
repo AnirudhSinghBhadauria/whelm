@@ -149,6 +149,7 @@ Beyond simple metrics, you receive strategic recommendations tailored to your co
 ### Notes
 - We have kept DAG timeout at 30 minutes. However, You may need to increase it according to your usage.
 - You can spin both Postgres and CockroachDB locally instead of cloud using the same setup.
+- You can change the credentials for the respective application in the ```docker-compose.override.yml``` file.
 
 With **Whelm**, you'll create content that truly resonates with your viewers. **If Whelm helps your content journey, please ⭐ the repo!** Your stars help more creators discover these insights and contribute to making the tool even better.  Get started today!
 
