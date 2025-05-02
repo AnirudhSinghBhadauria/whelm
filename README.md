@@ -74,8 +74,8 @@ Getting started with Whelm takes just a few simple steps.
 - **YouTube Data API credentials**: Get yours [here](https://developers.google.com/youtube/v3/getting-started)
 - **Mistral AI API key**: Get yours [here](https://console.mistral.ai/)
 - **MinIO instance**: Using the docker over-ride file in the repository.
-- **PostgreSQL instance**: You can spin it locally using the docker-compose or you can get your cloud intance using [Render](https://dashboard.render.com/new/database).
-- **CockroachDB instance**: Again you can spin it locally using the docker-compose or you can get your cloud intance [here](https://www.cockroachlabs.com/).
+- **PostgreSQL instance**: You can spin it locally using the docker-compose or you can get your cloud instance using [Render](https://dashboard.render.com/new/database).
+- **CockroachDB instance**: Again you can spin it locally using the docker-compose or you can get your cloud instance [here](https://www.cockroachlabs.com/).
 - **Read ```docker-compose.override.yml```**: By this you get to know how everything is setup, how you can access different applications like MinIO, Airflow Server, **change credentials** for them etc.
 - **Folder Stucture**: Please find the folder structure [here](https://ik.imagekit.io/fcaqoy5tdf/WhatsApp%20Image%202025-04-05%20at%2017.22.12_92cfd6bd.jpg?updatedAt=1743853950048).
 - **IDE**: Anything works, VSC, PyCharm etc.
